@@ -11,13 +11,13 @@ public class MatrizAdyacenciaTest {
 	
 	@Test
 	public void agregarElementoTest() {
-		mAdyacencia.agregarElemento(0, 3);
+		mAdyacencia.agregarElemento(3, 0);
 		assertTrue(mAdyacencia.existeElemento(3,0));
 	}
 	
 	@Test
 	public void agregarElementoSimetriaTest() {
-		mAdyacencia.agregarElemento(0, 3);
-		assertTrue(mAdyacencia.existeElemento(3,0));
+		mAdyacencia.agregarElemento(3, 0);
+		assertTrue(mAdyacencia.existeElemento(0,3));
 	}
 }
