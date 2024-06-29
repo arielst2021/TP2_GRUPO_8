@@ -29,46 +29,40 @@ public class MatrizAdyacenciaTest {
 	
 	@Test
 	public void eliminarElementoTest() {
-		// Agregamos los elementos que no tengan simetricos para probar el metodo
-		mAdyacencia.agregarElemento(0, 0);
-		mAdyacencia.agregarElemento(0, 1);
-		mAdyacencia.agregarElemento(0, 2);
-		mAdyacencia.agregarElemento(1, 1);
-		mAdyacencia.agregarElemento(2, 2);
-		// Eliminamos los elementos que no tengan simetricos
-		mAdyacencia.eliminarElemento(0, 0);
 		mAdyacencia.eliminarElemento(0, 1);
 		mAdyacencia.eliminarElemento(0, 2);
-		mAdyacencia.eliminarElemento(1, 1);
-		mAdyacencia.eliminarElemento(2, 2);
+		mAdyacencia.eliminarElemento(0, 3);
+		mAdyacencia.eliminarElemento(1, 2);
+		mAdyacencia.eliminarElemento(1, 3);
+		mAdyacencia.eliminarElemento(2, 3);
 		assertAll(
 				"Metodo eliminarElementoTest()",
-			() -> assertFalse(mAdyacencia.existeElemento(0,0)),
 			() -> assertFalse(mAdyacencia.existeElemento(0,1)),
 			() -> assertFalse(mAdyacencia.existeElemento(0,2)),
-			() -> assertFalse(mAdyacencia.existeElemento(1,1)),
-			() -> assertFalse(mAdyacencia.existeElemento(2,2))
+			() -> assertFalse(mAdyacencia.existeElemento(0,3)),
+			() -> assertFalse(mAdyacencia.existeElemento(1,2)),
+			() -> assertFalse(mAdyacencia.existeElemento(1,3)),
+			() -> assertFalse(mAdyacencia.existeElemento(2,3))
 		);
 	}
 	
 	@Test
 	public void eliminarElementoSimetricoTest() {
-		mAdyacencia.agregarElemento(1, 0);
-		mAdyacencia.agregarElemento(1, 2);
-		mAdyacencia.agregarElemento(2, 0);
-		mAdyacencia.agregarElemento(2, 1);
-		
 		mAdyacencia.eliminarElemento(1, 0);
-		mAdyacencia.eliminarElemento(1, 2);
 		mAdyacencia.eliminarElemento(2, 0);
+		mAdyacencia.eliminarElemento(3, 0);
 		mAdyacencia.eliminarElemento(2, 1);
+		mAdyacencia.eliminarElemento(3, 1);
+		mAdyacencia.eliminarElemento(3, 2);
 		
 		assertAll(
 				"Metodo eliminarElementoSimetricoTest()",
 			() -> assertFalse(mAdyacencia.existeElemento(1,0)),
-			() -> assertFalse(mAdyacencia.existeElemento(1,2)),
 			() -> assertFalse(mAdyacencia.existeElemento(2,0)),
-			() -> assertFalse(mAdyacencia.existeElemento(2,1))
+			() -> assertFalse(mAdyacencia.existeElemento(3,0)),
+			() -> assertFalse(mAdyacencia.existeElemento(2,1)),
+			() -> assertFalse(mAdyacencia.existeElemento(3,1)),
+			() -> assertFalse(mAdyacencia.existeElemento(3,2))
 		);
 	}
 
